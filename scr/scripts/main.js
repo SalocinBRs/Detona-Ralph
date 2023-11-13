@@ -4,14 +4,15 @@ const state = {
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
-        resetf: document.querySelector("#reset")
+        reset: document.querySelector("#reset"),
+        mute: document.querySelector("#mute"),
     },
     values:  {
         timerId: null,
         countDownTimerId: setInterval(countDown, 800),
         hitPosition: 0,
         result: 0,
-        curretTime: 20000,
+        curretTime: 20,
     },
 };
 
@@ -57,6 +58,7 @@ function addListerHitBox() {
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
                 playSound("hit.m4a", 0.08);
+                state.values.curretTime += 2 ;
             }
             
         })
@@ -71,9 +73,9 @@ function initialize() {
     addListerHitBox()
 }
 
-state.view.resetf.addEventListener('click', function() {
+state.view.reset.addEventListener('click', function() {
     window.location.reload()
-
-
+    
 })
+  
 initialize();
