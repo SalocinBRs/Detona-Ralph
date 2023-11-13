@@ -62,7 +62,7 @@ function addListerHitBox() {
                 playSound("hit.m4a", 0.68);
                 state.values.currentTime += 2;
 
-                state.values.initialInterval -= 30;
+                state.values.initialInterval -= 18;
                 clearInterval(state.values.timerId);
                 moveEnemy(state.values.initialInterval);
             } else {
