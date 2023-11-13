@@ -4,13 +4,14 @@ const state = {
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
+        resetf: document.querySelector("#reset")
     },
     values:  {
         timerId: null,
-        countDownTimerId: setInterval(countDown, 1000),
+        countDownTimerId: setInterval(countDown, 800),
         hitPosition: 0,
         result: 0,
-        curretTime: 10,
+        curretTime: 20000,
     },
 };
 
@@ -18,7 +19,7 @@ function randomSquare() {
     state.view.square.forEach((square) => {
         square.classList.remove("enemy");
     });
-
+    
     let randomNumber = Math.floor(Math.random() * 9);
     let randomSquare = state.view.square[randomNumber];
     randomSquare.classList.add("enemy");
@@ -32,7 +33,7 @@ function moveEnemy() {
 function countDown() {
     state.values.curretTime--;
     state.view.timeLeft.textContent = state.values.curretTime;
-
+    
     if (state.values.curretTime <= 0) {
         clearInterval(state.values.countDownTimerId)
         clearInterval(state.values.timerId)
@@ -57,15 +58,22 @@ function addListerHitBox() {
                 state.values.hitPosition = null;
                 playSound("hit.m4a", 0.08);
             }
-
+            
         })
     });
 }
 
+
 function initialize() {
+    playSound("stageSound.m4a", 1)
     randomSquare();
     moveEnemy()
     addListerHitBox()
 }
-playSound("stageSound.m4a", 0.7)
+
+state.view.resetf.addEventListener('click', function() {
+    window.location.reload()
+
+
+})
 initialize();

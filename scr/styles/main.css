@@ -30,6 +30,44 @@
 
 }
 
+.buttons {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#mute {
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+    
+    background-color: rgb(255, 0, 0);
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 00px;
+    border-color: #ffbd09;
+    box-shadow: 2px 2px #000000;
+
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+
+#reset {
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+    
+    background-color: rgb(255, 0, 0);
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 00px;
+    border-color: #ffbd09;
+    box-shadow: 2px 2px #000000;
+    
+    margin-left: center;
+    margin: 10px;
+}
+
 .square {
     border: 1px solid #000000;
     height: 135px;
@@ -43,6 +81,7 @@
     background-position: center;
     background-color: #7e0000;
 }
+
 
 .menu-lifes {
     display: flex;
