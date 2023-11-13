@@ -12,7 +12,7 @@ const state = {
         countDownTimerId: setInterval(countDown, 800),
         hitPosition: 0,
         result: 0,
-        curretTime: 20,
+        curretTime: 15,
     },
 };
 
