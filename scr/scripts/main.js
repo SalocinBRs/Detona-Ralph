@@ -67,6 +67,5 @@ function initialize() {
     moveEnemy()
     addListerHitBox()
 }
-
-initialize();
 playSound("stageSound.m4a", 0.7)
+initialize();
