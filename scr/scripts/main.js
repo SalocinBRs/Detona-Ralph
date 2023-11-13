@@ -6,14 +6,16 @@ const state = {
         score: document.querySelector("#score"),
         reset: document.querySelector("#reset"),
         mute: document.querySelector("#mute"),
+        lifes: document.querySelector("#lifes"),
     },
     values:  {
         timerId: null,
-        countDownTimerId: setInterval(countDown, 800),
+        countDownTimerId: setInterval(countDown, 1000),
         hitPosition: 0,
         result: 0,
-        currentTime: 20, // Renomeado para currentTime para manter a consistência
-        initialInterval: 1000, // Adicionado o intervalo inicial
+        currentTime: 20,
+        initialInterval: 1000,
+        currentLifes: 3,
     },
 };
 
@@ -21,7 +23,7 @@ function randomSquare() {
     state.view.square.forEach((square) => {
         square.classList.remove("enemy");
     });
-    
+
     let randomNumber = Math.floor(Math.random() * 9);
     let randomSquare = state.view.square[randomNumber];
     randomSquare.classList.add("enemy");
@@ -35,7 +37,7 @@ function moveEnemy(intervalo = state.values.initialInterval) {
 function countDown() {
     state.values.currentTime--;
     state.view.timeLeft.textContent = state.values.currentTime;
-    
+
     if (state.values.currentTime <= 0) {
         clearInterval(state.values.countDownTimerId);
         clearInterval(state.values.timerId);
@@ -45,7 +47,7 @@ function countDown() {
 }
 
 function playSound(soundName, volume) {
-    let audio = new Audio(`./scr/sounds/${soundName}`)
+    let audio = new Audio(`./scr/sounds/${soundName}`);
     audio.volume = volume;
     audio.play();
 }
@@ -60,21 +62,31 @@ function addListerHitBox() {
                 playSound("hit.m4a", 0.68);
                 state.values.currentTime += 2;
 
-                // Diminui 25 milissegundos do intervalo a cada clique bem-sucedido
-                state.values.initialInterval -= 50;
-
-                // Limpa o intervalo atual
+                state.values.initialInterval -= 30;
                 clearInterval(state.values.timerId);
-
-                // Inicia um novo intervalo com o valor atualizado
                 moveEnemy(state.values.initialInterval);
+            } else {
+
+                state.values.currentLifes--;
+
+                state.view.lifes.textContent = state.values.currentLifes;
+
+                if (state.values.currentLifes <= 0) {
+                    clearInterval(state.values.countDownTimerId);
+                    clearInterval(state.values.timerId);
+                    playSound("death.m4a", 1);
+                    alert('Gamer over, o seu resultado foi: ' + state.values.result);
+                } else {
+                    clearInterval(state.values.timerId);
+                    moveEnemy(state.values.initialInterval);
+                }
             }
         });
     });
 }
 
 function initialize() {
-    playSound("stageSound.m4a", .6)
+    playSound("stageSound.m4a", .6);
     randomSquare();
     moveEnemy();
     addListerHitBox();
