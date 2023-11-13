@@ -74,6 +74,7 @@
     width: 120px;
     background-color: #2f2020;
     opacity: 0.9;
+    cursor: pointer;
 } 
 
 .enemy {
@@ -83,6 +84,10 @@
     background-color: #7e0000;
 }
 
+.enemy:hover{
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, .5);
+}
 
 .menu-lifes {
     display: flex;
