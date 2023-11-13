@@ -57,7 +57,7 @@ function addListerHitBox() {
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
-                playSound("hit.m4a", 0.08);
+                playSound("hit.m4a", 0.68);
                 state.values.currentTime += 2;
 
                 // Diminui 25 milissegundos do intervalo a cada clique bem-sucedido
@@ -74,7 +74,7 @@ function addListerHitBox() {
 }
 
 function initialize() {
-    playSound("stageSound.m4a", 1)
+    playSound("stageSound.m4a", .6)
     randomSquare();
     moveEnemy();
     addListerHitBox();
