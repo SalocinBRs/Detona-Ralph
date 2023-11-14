@@ -76,7 +76,12 @@
     width: 120px;
     background-color: #2f2020;
     opacity: 0.9;
-} 
+}
+
+.square:hover {
+    transform: ;
+    background-color: #000000;
+}
 
 .enemy {
     background-image: url("../images/ralph.png");
