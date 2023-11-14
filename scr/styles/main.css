@@ -34,6 +34,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
+    cursor: pointer;
 }
 
 #mute {
@@ -66,6 +67,7 @@
     
     margin-left: center;
     margin: 10px;
+    cursor: pointer;
 }
 
 .square {
@@ -74,7 +76,6 @@
     width: 120px;
     background-color: #2f2020;
     opacity: 0.9;
-    cursor: pointer;
 } 
 
 .enemy {
@@ -82,11 +83,13 @@
     background-size: cover;
     background-position: center;
     background-color: #7e0000;
+    cursor: pointer;
 }
 
 .enemy:hover{
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, .5);
+    background-color: #ff0000;
 }
 
 .menu-lifes {
