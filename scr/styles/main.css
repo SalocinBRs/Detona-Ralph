@@ -78,10 +78,6 @@
     opacity: 0.9;
 }
 
-.square:hover {
-    transform: ;
-    background-color: #000000;
-}
 
 .enemy {
     background-image: url("../images/ralph.png");
