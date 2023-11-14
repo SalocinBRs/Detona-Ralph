@@ -68,7 +68,7 @@ function addListerHitBox() {
             } else {
 
                 state.values.currentLifes--;
-
+                playSound("damage.m4a", .11)
                 state.view.lifes.textContent = state.values.currentLifes;
 
                 if (state.values.currentLifes <= 0) {
